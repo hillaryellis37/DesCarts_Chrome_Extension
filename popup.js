@@ -21,7 +21,7 @@ function get_url_and_title() {
 
     console.log("title:", title);
     console.log("url:" , url);
-    console.log(tabs);
+    console.log("image:", image);
 
     });
   });
@@ -30,6 +30,7 @@ function get_url_and_title() {
 function get_urls() {
   var picUrls = chrome.extension.getBackgroundPage().IMAGE_URLS;
   if (picUrls.length > 0){
+    image = picUrls[0].src;
   	console.log("The popup.js is working")
       	
   	// create a container object for the list

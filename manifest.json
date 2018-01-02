@@ -5,7 +5,8 @@
     "activeTab",
     "tabs", 
     "<all_urls>", 
-    "background"
+    "background",
+    "http://localhost/*"
   ],
   "content_scripts": [{
         "js": ["grabber.js"],

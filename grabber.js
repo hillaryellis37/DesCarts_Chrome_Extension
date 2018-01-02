@@ -1,5 +1,5 @@
 var HEIGHT = 600;
-var WIDTH = 900;
+var WIDTH = 1200;
 
 function parseUrls() {
 	// get the urls of the images 
