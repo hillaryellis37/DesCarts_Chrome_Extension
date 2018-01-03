@@ -4,20 +4,23 @@
 var title = "";
 var url = "";
 var image = "";
+var CARTS = [];
 
 function loadXMLDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("get").innerHTML =
-      this.responseText;
+      // document.getElementById("get").innerHTML =
+      // this.responseText;
+      CARTS = this.response;
+      console.log(CARTS);
     }
   };
-  xhttp.open("GET", "http://localhost:3000/user", true);
+  xhttp.open("GET", "http://localhost:3000/carts", true);
   xhttp.send();
 }
 
-document.getElementById("get").addEventListener("click", loadXMLDoc);
+// document.getElementById("get").addEventListener("click", loadXMLDoc);
 
 
 function get_url_and_title() {
@@ -74,6 +77,7 @@ function ceaseLoading(){
   //start loading the rest of the script
   get_url_and_title();
   get_urls();
+  loadXMLDoc();
 }
 
 // when the page loads, remove the gif and execute the rest
