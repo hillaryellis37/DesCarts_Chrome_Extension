@@ -6,21 +6,34 @@ var url = "";
 var image = "";
 var CARTS = [];
 
+
 function loadXMLDoc() {
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      // document.getElementById("get").innerHTML =
-      // this.responseText;
-      CARTS = this.response;
-      console.log(CARTS);
+
+      CARTS = JSON.parse(this.response);
+
+      for (var i = 0; i < CARTS.length; i++) {
+        var id = CARTS[i]._id;
+        var cartname = CARTS[i].cart_name;
+        var bgurl = CARTS[i].bg_url;
+
+        var cartContainer = document.createElement("div");
+        document.getElementById("cart-container").appendChild(cartContainer);
+
+        var cartdiv = "<div class='item' data-cart='" + id + "'>" +
+                        "<img class='item item-image' src='" + bgurl + "'>" +
+                        "<div class='description'>" + cartname + " +" + "</div>"
+                      "</div>";
+        cartContainer.innerHTML = cartdiv;       
+      }
     }
   };
   xhttp.open("GET", "http://localhost:3000/carts", true);
   xhttp.send();
 }
 
-// document.getElementById("get").addEventListener("click", loadXMLDoc);
 
 
 function get_url_and_title() {
@@ -56,7 +69,13 @@ function get_urls() {
   	// add it to the DOm
   	document.getElementById("imgContainer").appendChild(imgContainer);
 
-    imgContainer.innerHTML = "<img src=" + picUrls[0].src + " width=25%, height=25%>";
+    imgContainer.innerHTML = "<img src=" + picUrls[0].src + " width=50%, height=50%>"+
+                             "<div class='title'>"+
+                                "<p>" + title + "</p>"+
+                             "</div>"+
+                             "<div>"+
+                                "<p>Select a cart or create a new cart to save your item!</p>"
+                             "</div>";
   }
   else{
     console.log("nothing big enough");
