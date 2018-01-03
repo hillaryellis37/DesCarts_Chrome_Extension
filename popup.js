@@ -6,6 +6,28 @@ var url = "";
 var image = "";
 var CARTS = [];
 
+$("#cart-container").on("click", ".savedcart", function() {
+  var cartID = $(this).attr("data-cart");
+
+    console.log("title:", title);
+    console.log("url:" , url);
+    console.log("image:", image);
+
+    $.ajax({
+      method: "POST",
+      url: "http://localhost:3000/item/" + cartID,
+      data: {
+        item_name: title,
+        url: url,
+        image: image
+      }
+    }).done(function(dbItem){
+      console.log(dbItem);
+    });
+
+
+});
+
 
 function loadXMLDoc() {
   var xhttp = new XMLHttpRequest();
@@ -22,7 +44,7 @@ function loadXMLDoc() {
         var cartContainer = document.createElement("div");
         document.getElementById("cart-container").appendChild(cartContainer);
 
-        var cartdiv = "<div class='item' data-cart='" + id + "'>" +
+        var cartdiv = "<div class='item savedcart' data-cart='" + id + "'>" +
                         "<img class='item item-image' src='" + bgurl + "'>" +
                         "<div class='description'>" + cartname + " +" + "</div>"
                       "</div>";
@@ -30,7 +52,7 @@ function loadXMLDoc() {
       }
     }
   };
-  xhttp.open("GET", "http://localhost:3000/carts", true);
+  xhttp.open("GET", "http://localhost:3000/carts/", true);
   xhttp.send();
 }
 
@@ -79,7 +101,7 @@ function get_urls() {
   }
   else{
     console.log("nothing big enough");
-    document.body.innerHTML = "Unable to detect item.";
+    document.body.innerHTML = "Unable to detect item. Try reloading your current Browser tab";
   }
 }
 

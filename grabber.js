@@ -1,4 +1,4 @@
-var HEIGHT = 600;
+var HEIGHT = 400;
 var WIDTH = 1200;
 
 function parseUrls() {
