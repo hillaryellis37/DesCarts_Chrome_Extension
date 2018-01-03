@@ -1,16 +1,6 @@
 var IMAGE_URLS = []
-var MONGO_DB_URL = "mongodb://localhost/cartmedb";
 
-var xhr = new XMLHttpRequest();
-xhr.open("GET", "mongodb://localhost/cartmedb", true);
-xhr.onreadystatechange = function() {
-  if (xhr.readyState == 4) {
-    // JSON.parse does not evaluate the attacker's scripts.
-    var resp = JSON.parse(xhr.responseText);
-    console.log(resp);
-  }
-}
-xhr.send();
+
 
 chrome.extension.onMessage.addListener(
     function(request, sender, sendResponse) {

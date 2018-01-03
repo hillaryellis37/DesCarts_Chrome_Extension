@@ -5,6 +5,21 @@ var title = "";
 var url = "";
 var image = "";
 
+function loadXMLDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("get").innerHTML =
+      this.responseText;
+    }
+  };
+  xhttp.open("GET", "http://localhost:3000/user", true);
+  xhttp.send();
+}
+
+document.getElementById("get").addEventListener("click", loadXMLDoc);
+
+
 function get_url_and_title() {
 
   chrome.windows.getCurrent(function(win){
@@ -34,18 +49,11 @@ function get_urls() {
   	console.log("The popup.js is working")
       	
   	// create a container object for the list
-  	var listContainer = document.createElement("div");	
+  	var imgContainer = document.createElement("div");	
   	// add it to the DOm
-  	document.getElementById("ulContainer").appendChild(listContainer);
-  	// create a ul object for the list items
-  	var listElement = document.createElement("ul");
-  	// add that to the DOm
-    listContainer.appendChild(listElement);
+  	document.getElementById("imgContainer").appendChild(imgContainer);
 
-
-    var listItem = document.createElement("li");
-    listItem.innerHTML = "<img src=" + picUrls[0].src + " width=25%, height=25%>";
-    listElement.appendChild(listItem);
+    imgContainer.innerHTML = "<img src=" + picUrls[0].src + " width=25%, height=25%>";
   }
   else{
     console.log("nothing big enough");
