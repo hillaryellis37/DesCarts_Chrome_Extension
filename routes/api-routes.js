@@ -17,6 +17,7 @@ module.exports = function(app) {
 
   	app.get("/carts", function(req, res) {
 	    db.Cart
+	    
 		.find({})
 		.then(function(dbUser) {
 			res.json(dbUser);
@@ -25,22 +26,6 @@ module.exports = function(app) {
 		    res.json(err);
 		});
   	});
-
-
-
- //  	app.post("/cart", function(req, res) {
-	//   	db.Cart
-	// 	.create(req.body)
-	// 	.then(function(dbCart) {
-	// 	    return db.User.findOneAndUpdate({}, { $push: { carts: dbCart._id } }, { new: true });
-	// 	})
-	// 	.then(function(dbUser) {
-	// 	    res.json(dbUser);
-	// 	})
-	// 	.catch(function(err) {
-	// 	    res.json(err);
-	// 	});
-	// });
 
 	app.post("/cart/:id", function(req, res) {
 	    db.Cart

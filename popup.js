@@ -71,14 +71,15 @@ function loadXMLDoc() {
         var cartname = CARTS[i].cart_name;
         var bgurl = CARTS[i].bg_url;
 
-        var cartContainer = document.createElement("div");
-        document.getElementById("cart-container").appendChild(cartContainer);
+        // var cartContainer = document.createElement("div");
+        // document.getElementById("cart-container").appendChild(cartContainer);
 
-        var cartdiv = "<div class='item savedcart' data-name='" + cartname + "' data-cart='" + id + "'>" +
+        var cartDiv = "<div class='item savedcart' data-name='" + cartname + "' data-cart='" + id + "'>" +
                         "<img class='item item-image' src='" + bgurl + "'>" +
                         "<div class='description'>" + cartname + " +" + "</div>" +
                       "</div>";
-        cartContainer.innerHTML = cartdiv;       
+        
+        $("#cart-container").prepend(cartDiv);    
       }
     }
   };
