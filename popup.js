@@ -8,6 +8,7 @@ var CARTS = [];
 
 $("#cart-container").on("click", ".savedcart", function() {
   var cartID = $(this).attr("data-cart");
+  var cartName = $(this).attr("data-name");
 
     $.ajax({
       method: "POST",
@@ -19,7 +20,20 @@ $("#cart-container").on("click", ".savedcart", function() {
       }
     }).done(function(dbItem){
       console.log(dbItem);
+      $("body").empty();
+      var confirmationDiv = "<div class='flex-container'>" +
+                              "<div class='confirmation-container'>"+
+                                "<p>Added to " + cartName + "</p>" + 
+                                "<hr>" +
+                                "<img src=" + image + " width=40%, height=40%>"+
+                                "<hr>" +
+                                "<div>"+
+                                  "<img src='http://www.rib-x.co.uk/wp-content/uploads/2017/04/Rib-logo-1.svg' width=10%, height=10%>"+
+                                  "<p id='close-ext'>Close</p>"+
+                              "</div>" +
+                            "</div>";
 
+      $("body").append(confirmationDiv);
     });
 });
 
@@ -56,9 +70,9 @@ function loadXMLDoc() {
         var cartContainer = document.createElement("div");
         document.getElementById("cart-container").appendChild(cartContainer);
 
-        var cartdiv = "<div class='item savedcart' data-cart='" + id + "'>" +
+        var cartdiv = "<div class='item savedcart' data-name='" + cartname + "' data-cart='" + id + "'>" +
                         "<img class='item item-image' src='" + bgurl + "'>" +
-                        "<div class='description'>" + cartname + " +" + "</div>"
+                        "<div class='description'>" + cartname + " +" + "</div>" +
                       "</div>";
         cartContainer.innerHTML = cartdiv;       
       }
