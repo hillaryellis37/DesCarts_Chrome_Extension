@@ -9,10 +9,6 @@ var CARTS = [];
 $("#cart-container").on("click", ".savedcart", function() {
   var cartID = $(this).attr("data-cart");
 
-    console.log("title:", title);
-    console.log("url:" , url);
-    console.log("image:", image);
-
     $.ajax({
       method: "POST",
       url: "http://localhost:3000/item/" + cartID,
@@ -23,9 +19,25 @@ $("#cart-container").on("click", ".savedcart", function() {
       }
     }).done(function(dbItem){
       console.log(dbItem);
+
     });
+});
 
+$("#add-new-cart").on("click", function() {
+  var cartname = $("#cart-name").val().trim();
+  var bgurl = $("#bg-url").val().trim();
 
+    $.ajax({
+      method: "POST",
+      url: "http://localhost:3000/cart/5a4c8be836136c47c938cdb3",
+      data: {
+        cart_name: cartname,
+        bg_url: bgurl,
+      }
+    }).done(function(dbCart){
+      console.log(dbCart);
+
+    });
 });
 
 
@@ -72,6 +84,9 @@ function get_url_and_title() {
     }     
   }
 
+  var titleDiv = "<p>" + title + "</p>";
+  $("#title").append(titleDiv);
+
     console.log("title:", title);
     console.log("url:" , url);
     console.log("image:", image);
@@ -85,19 +100,13 @@ function get_urls() {
   if (picUrls.length > 0){
     image = picUrls[0].src;
   	console.log("The popup.js is working")
-      	
-  	// create a container object for the list
-  	var imgContainer = document.createElement("div");	
-  	// add it to the DOm
-  	document.getElementById("imgContainer").appendChild(imgContainer);
 
-    imgContainer.innerHTML = "<img src=" + picUrls[0].src + " width=50%, height=50%>"+
-                             "<div class='title'>"+
-                                "<p>" + title + "</p>"+
-                             "</div>"+
-                             "<div>"+
-                                "<p>Select a cart or create a new cart to save your item!</p>"
-                             "</div>";
+    var imgDiv = "<div class='d-flex justify-content-center'>" +
+                      "<img src=" + picUrls[0].src + " width=60%, height=60%>"+
+                    "</div>";
+
+    $("#imgContainer").append(imgDiv);
+
   }
   else{
     console.log("nothing big enough");

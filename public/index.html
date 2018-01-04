@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#000000">
 <!--     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" media="screen" title="no title">
     
@@ -24,42 +24,50 @@
         height: 200px;
       }
       body {
-        width: 308px;
+        width: 650px;
         overflow-x: hidden;
       }
     </style>
   </head>
   
   <body>
-    <div id="loadingImage">
-      <center> <img src="ajax-loader.gif"> </center> 
-    </div> <!-- end loading image -->
-
-    <div id="content">
-      <div id="btn-container"></div>
-      <div id="imgContainer"></div>
-    </div>
-
-
-    <div id="all-container">
+    <div class="row">
+      <div class="col-sm">
+        <div id="item-container" class="sticky-top">
+          <div id="content">
+            <div id="imgContainer"></div>
+          </div>
+          <div id="title" class="text-center">
+          </div>
+        </div>
+      </div>
       
-      <div id="addcart" class="item">
-        <img class="item item-image">
-        <div class="description">Add Cart +</div>
-      </div>
-      <div class="container">
-        <form action="http:localhost:3000/cart/5a4c8be836136c47c938cdb3" method="post">
-          <div class="form-group">
-            <input type="text" name="cart_name" class="form-control" placeholder="New Cart Name">
+      <div class="col-sm">
+        <div id="all-container">
+          <div id="sticky-header" class="sticky-top" style="background-color: white;">
+            <div id="prompt" class="text-center">
+              <p>Choose a Cart!</p>
+            </div>
+            <div id="addcart" class="item">
+              <img class="item item-image">
+              <div class="description">Create New Cart +</div>
+            </div>
+            <div class="container">
+              <form>
+                <div class="form-group">
+                  <input id="cart-name" type="text" name="cart_name" class="form-control" placeholder="New Cart Name">
+                </div>
+                <div class="form-group">
+                  <input id="bg-url" type="text" name="bg_url" class="form-control" placeholder="Background Image URL">
+                </div>
+                <input type="submit" id="add-new-cart">
+              </form>
+            </div>
           </div>
-          <div class="form-group">
-            <input type="text" name="bg_url" class="form-control" placeholder="Background Image URL">
+          <div id="cart-container">
+            
           </div>
-          <input type="submit">
-        </form>
-      </div>
-      <div id="cart-container">
-        
+        </div>
       </div>
 
     </div>

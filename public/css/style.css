@@ -1,7 +1,7 @@
 /*from items Component:*/
 
 .item{
-  height:125px;
+  height:75px;
   width:300px;
   position:relative;
   background-color: black;
@@ -22,7 +22,7 @@
   color:white;
   text-align: center;
   opacity: 0.8;
-  font-size: 32pt;
+  font-size: 20pt;
   font-weight: 100;
   position: absolute;
   top:50%;
@@ -47,7 +47,7 @@
 /*from Banner Component:*/
 
 .banner{
-  height:175px;
+  height:150px;
   width:300px;
   position:relative;
   background-color: black;
