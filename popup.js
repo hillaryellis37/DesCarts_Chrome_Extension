@@ -27,7 +27,7 @@ $("#cart-container").on("click", ".savedcart", function() {
                                 "<hr>" +
                                 "<img src=" + image + " width=40%, height=40%>"+
                                 "<hr>" +
-                                "<div>"+
+                                "<div id='close-window'>"+
                                   "<img src='http://www.rib-x.co.uk/wp-content/uploads/2017/04/Rib-logo-1.svg' width=10%, height=10%>"+
                                   "<p id='close-ext'>Close</p>"+
                               "</div>" +
@@ -35,6 +35,10 @@ $("#cart-container").on("click", ".savedcart", function() {
 
       $("body").append(confirmationDiv);
     });
+});
+
+$("body").on("click", "#close-window", function() {
+  window.close();
 });
 
 $("#add-new-cart").on("click", function() {
