@@ -47,7 +47,7 @@ $("#add-new-cart").on("click", function() {
 
     $.ajax({
       method: "POST",
-      url: "http://localhost:8080/cart/5a4c8be836136c47c938cdb3",
+      url: "http://localhost:8080/carts/5a4c8be836136c47c938cdb3",
       data: {
         cart_name: cartname,
         bg_url: bgurl,

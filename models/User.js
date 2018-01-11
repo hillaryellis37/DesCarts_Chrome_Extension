@@ -16,10 +16,10 @@ var UserSchema = new Schema({
     type: String,
     required: true
   },
-  carts: {
+  carts: [{
     type: Schema.Types.ObjectId,
     ref: "Cart"
-  }
+  }]
 });
 
 var User = mongoose.model("User", UserSchema);

@@ -7,6 +7,7 @@ module.exports = function(app) {
   	app.get("/users", function(req, res) {
 	    db.User
 		.find({})
+		.populate("carts")
 		.then(function(dbUser) {
 			res.json(dbUser);
 		})
@@ -19,6 +20,7 @@ module.exports = function(app) {
 	    db.Cart
 	    
 		.find({})
+		.populate("items")
 		.then(function(dbUser) {
 			res.json(dbUser);
 		})
@@ -27,7 +29,7 @@ module.exports = function(app) {
 		});
   	});
 
-	app.post("/cart/:id", function(req, res) {
+	app.post("/carts/:id", function(req, res) {
 	    db.Cart
 	    .create(req.body)
 	    .then(function(dbCart) {
@@ -47,9 +49,10 @@ module.exports = function(app) {
 	    db.Item
 	    .create(req.body)
 	    .then(function(dbItem) {
+	    	console.log('im here', dbItem)
 	      return db.Cart
-	      .findOne({ _id: req.params.id })
-	      .populate("items");
+	      .update({ _id: req.params.id }, { $push: { items: dbItem._id  } })
+	      .catch(err=> console.error(err));
 	    })
 	    .then(function(seeItem) {
 	      res.json(seeItem);

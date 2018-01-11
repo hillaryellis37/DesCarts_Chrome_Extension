@@ -10,10 +10,10 @@ var CartSchema = new Schema({
     type: String,
     required: false
   },
-  items: {
+  items: [{
     type: Schema.Types.ObjectId,
     ref: "Item"
-  }
+  }]
 });
 
 var Cart = mongoose.model("Cart", CartSchema);
