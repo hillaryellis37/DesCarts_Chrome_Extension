@@ -1,5 +1,9 @@
 /*from items Component:*/
 
+body{
+  background-color: whitesmoke;
+}
+
 .item{
   height:75px;
   width:300px;
@@ -106,4 +110,57 @@
 
 .search:hover{
   opacity: 1;
+}
+
+
+.form-group input:focus{
+  border-color: rgba(102, 2, 60, 0.5);
+  background-color: rgba(204, 204, 204, 0.55);
+  box-shadow: 0 1px 1px black inset, 0 0 8px black;
+  outline: 0 none;
+}
+
+.form-group input{
+  background-color: rgba(204, 204, 204, 0.55);
+  border-color:rgba(140, 140, 140, 0.3);
+  color:rgb(102, 2, 60);
+  font-size: 13pt;
+  text-align: center;
+  font-family: "Helvetica";
+} 
+
+#add-new-cart{
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  border: none;
+  font-size: 14pt;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: black;
+  width: 100%;
+  transition: opacity 0.5s;
+}
+
+#add-new-cart:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+#prompt>p{
+  font-size: 16pt;
+  margin:0;
+  padding:10px;
+}
+
+#imgContainer{
+  border: black 1px solid;
+  background-color: white;
+}
+
+#sticky-header > .container{
+  padding: 20px;
+}
+
+#item-container #title > p{
+  font-size: 14pt;
 }
