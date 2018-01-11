@@ -43,11 +43,13 @@ module.exports = function(app) {
 
     });
 
-	app.post("/item/:id", function(req, res) {
+	app.post("/items/:id", function(req, res) {
 	    db.Item
 	    .create(req.body)
 	    .then(function(dbItem) {
-	      return db.Cart.findOneAndUpdate({ _id: req.params.id }, { items: dbItem._id }, { new: true });
+	      return db.Cart
+	      .findOne({ _id: req.params.id })
+	      .populate("items");
 	    })
 	    .then(function(seeItem) {
 	      res.json(seeItem);

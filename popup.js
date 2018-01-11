@@ -12,7 +12,7 @@ $("#cart-container").on("click", ".savedcart", function() {
 
     $.ajax({
       method: "POST",
-      url: "http://localhost:3000/item/" + cartID,
+      url: "http://localhost:8080/items/" + cartID,
       data: {
         item_name: title,
         url: url,
@@ -47,7 +47,7 @@ $("#add-new-cart").on("click", function() {
 
     $.ajax({
       method: "POST",
-      url: "http://localhost:3000/cart/5a4c8be836136c47c938cdb3",
+      url: "http://localhost:8080/cart/5a4c8be836136c47c938cdb3",
       data: {
         cart_name: cartname,
         bg_url: bgurl,
@@ -83,7 +83,7 @@ function loadXMLDoc() {
       }
     }
   };
-  xhttp.open("GET", "http://localhost:3000/carts/", true);
+  xhttp.open("GET", "http://localhost:8080/carts/", true);
   xhttp.send();
 }
 
