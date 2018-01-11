@@ -1,4 +1,4 @@
-var express = require("express");
+  var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
@@ -30,22 +30,22 @@ mongoose.connect("mongodb://localhost/cartmedb", {
   useMongoClient: true
 });
 
-var userSeed =
-  {
-  username: "Hillary Ellis",
-  facebook_id: "10159656190100043",
-  profile_pic: "https://scontent.xx.fbcdn.net/v/t1.0-1/23794760_10159537915520043_5375534390358626231_n.jpg?oh=b0eb54232a702b5e90210e51c9f29232&oe=5AF1F972",
-  };
+// var userSeed =
+//   {
+//   username: "Hillary Ellis",
+//   facebook_id: "10159656190100043",
+//   profile_pic: "https://scontent.xx.fbcdn.net/v/t1.0-1/23794760_10159537915520043_5375534390358626231_n.jpg?oh=b0eb54232a702b5e90210e51c9f29232&oe=5AF1F972",
+//   };
 
 
-  db.User
-  .create(userSeed)
-  .then(function(dbUser) {
-    console.log(dbUser);
-  })
-  .catch(function(err) {
-    console.log(err.message);
-  });
+//   db.User
+//   .create(userSeed)
+//   .then(function(dbUser) {
+//     console.log(dbUser);
+//   })
+//   .catch(function(err) {
+//     console.log(err.message);
+//   });
 
 
 
