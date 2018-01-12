@@ -23,13 +23,13 @@ $("#cart-container").on("click", ".savedcart", function() {
       $("body").empty();
       var confirmationDiv = "<div class='flex-container'>" +
                               "<div class='confirmation-container'>"+
-                                "<p>Added to " + cartName + "</p>" + 
+                                "<p class='after-title'>Added to " + cartName + "</p>" + 
                                 "<hr>" +
-                                "<img src=" + image + " width=40%, height=40%>"+
+                                "<img class='img-responsive after-image' src=" + image + " width=40%, height=40%>"+
                                 "<hr>" +
                                 "<div id='close-window'>"+
-                                  "<img src='http://www.rib-x.co.uk/wp-content/uploads/2017/04/Rib-logo-1.svg' width=10%, height=10%>"+
-                                  "<p id='close-ext'>Close</p>"+
+                                  "<button id='close-ext'>Close</button>"+
+                                "</div>" +
                               "</div>" +
                             "</div>";
 

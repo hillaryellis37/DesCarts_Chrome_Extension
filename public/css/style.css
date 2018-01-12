@@ -164,3 +164,40 @@ body{
 #item-container #title > p{
   font-size: 14pt;
 }
+
+/*After Confirm*/
+.after-title{
+  text-align: center;
+  font-size: 16pt;
+}
+
+.after-image{
+  display: block;
+  margin: 0 auto;
+  border: 1px black solid;
+  padding:10px 40px;
+  background-color: white;
+} 
+
+#close-window{
+  text-align: center;
+}
+
+#close-ext{
+  font-family: Helvetica, Arial, sans-serif;
+  color: white;
+  border: none;
+  font-size: 14pt;
+  font-weight: bold;
+  border-radius: 5px;
+  background-color: black;
+  padding:10px 30px;
+  width: 120px;
+  margin-bottom: 20px;
+  transition: opacity 0.5s;
+}
+
+#close-ext:hover{
+  cursor: pointer;
+  opacity: 0.8;
+}
